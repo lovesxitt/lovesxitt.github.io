@@ -1,52 +1,42 @@
 :root {
-    --background-top: #fff4fa;
-    --background-bottom: #fce8f4;
+    --pink-50: #fff9fc;
+    --pink-100: #fff0f6;
+    --pink-200: #ffddea;
+    --pink-300: #f9bdd5;
+    --pink-400: #ef91b9;
+    --pink-500: #e963a0;
 
-    --white: #ffffff;
+    --lavender: #e9ddff;
 
-    --pink-1: #fff0f6;
-    --pink-2: #ffdce9;
-    --pink-3: #f8b6d1;
-    --pink-4: #ef89b7;
-    --pink-5: #eb5fa1;
+    --brown: #795f6b;
+    --brown-soft: #9d818e;
 
-    --purple: #b590e8;
-
-    --text: #795e6b;
-    --text-soft: #a38291;
+    --card: rgba(255, 255, 255, 0.86);
 
     --border:
-        rgba(
-            240,
-            137,
-            181,
-            0.35
-        );
+        rgba(240, 144, 187, 0.36);
 
     --shadow:
-        0 26px 60px
-        rgba(
-            204,
-            105,
-            150,
-            0.15
-        );
+        0 24px 60px
+        rgba(189, 104, 143, 0.14);
 }
 
 
-/* =========================
+/* =========================================
    RESET
-========================= */
+========================================= */
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
+
 
 html {
     scroll-behavior: smooth;
 }
+
 
 body {
     min-height: 100vh;
@@ -55,81 +45,93 @@ body {
         "Manrope",
         sans-serif;
 
-    color: var(--text);
+    color: var(--brown);
 
     background:
         radial-gradient(
-            circle at 10% 12%,
-            rgba(255, 204, 225, 0.55),
-            transparent 27%
+            circle at 15% 15%,
+            rgba(255, 200, 223, 0.48),
+            transparent 29%
         ),
 
         radial-gradient(
-            circle at 90% 80%,
-            rgba(229, 208, 255, 0.36),
-            transparent 28%
+            circle at 88% 75%,
+            rgba(229, 213, 255, 0.38),
+            transparent 31%
         ),
 
         linear-gradient(
             180deg,
-            var(--background-top),
-            var(--background-bottom)
+            #fff8fb 0%,
+            #fff1f7 100%
         );
 
     overflow-x: hidden;
 }
 
 
-/* =========================
-   PAGE
-========================= */
+img {
+    display: block;
+    max-width: 100%;
+}
 
-.page {
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.site-shell {
     position: relative;
 
-    width: 100%;
-
-    max-width: 1250px;
+    width:
+        min(
+            1120px,
+            calc(100% - 40px)
+        );
 
     margin: 0 auto;
 
     padding:
-        95px 25px
-        250px;
+        110px 0
+        0;
 
     z-index: 3;
 }
 
 
-/* =========================
+/* =========================================
    SAKURA SUPERIOR
-========================= */
+========================================= */
 
-.sakura-corner {
+.top-decoration {
+    position: absolute;
+
+    inset:
+        0 0 auto;
+
+    height: 420px;
+
+    overflow: hidden;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.sakura {
     position: absolute;
 
     top: 0;
 
     width:
-        min(
-            390px,
-            27vw
+        clamp(
+            260px,
+            28vw,
+            520px
         );
 
-    z-index: 1;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            0 7px 12px
-            rgba(
-                210,
-                103,
-                147,
-                0.08
-            )
-        );
+    height: auto;
 }
 
 
@@ -143,39 +145,38 @@ body {
 }
 
 
-/* =========================
-   WRAPPER HERO
-========================= */
+/* =========================================
+   HERO SCENE
+========================================= */
 
-.hero-wrapper {
+.hero-scene {
     position: relative;
 
-    max-width: 980px;
+    width: 100%;
 
-    margin: 0 auto;
+    margin:
+        0 auto
+        70px;
 }
 
 
-/* =========================
+/* =========================================
    HERO CARD
-========================= */
+========================================= */
 
 .hero-card {
     position: relative;
 
-    padding:
-        50px 46px
-        42px;
+    width: 100%;
 
-    text-align: center;
+    min-height: 680px;
+
+    padding:
+        65px 65px
+        45px;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.79
-        );
+        var(--card);
 
     border:
         2px solid
@@ -183,23 +184,23 @@ body {
             255,
             255,
             255,
-            0.95
+            0.94
         );
 
     border-radius:
-        44px;
+        42px;
+
+    backdrop-filter:
+        blur(16px);
 
     box-shadow:
         var(--shadow);
 
-    backdrop-filter:
-        blur(18px);
-
-    overflow: hidden;
+    overflow: visible;
 }
 
 
-/* línea interior kawaii */
+/* borde interior */
 
 .hero-card::before {
     content: "";
@@ -211,201 +212,189 @@ body {
     border:
         2px dashed
         rgba(
-            242,
-            170,
-            202,
-            0.40
-        );
-
-    border-radius:
-        33px;
-
-    pointer-events: none;
-}
-
-
-/* glow interno */
-
-.hero-card::after {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    top: 110px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    background:
-        rgba(
-            255,
-            207,
-            226,
-            0.22
-        );
-
-    filter:
-        blur(75px);
-
-    border-radius:
-        50%;
-
-    pointer-events: none;
-}
-
-
-/* =========================
-   MOÑO SUPERIOR
-========================= */
-
-.bow {
-    position: absolute;
-
-    z-index: 7;
-
-    pointer-events: none;
-
-    filter:
-        drop-shadow(
-            0 6px 10px
-            rgba(
-                221,
-                103,
-                158,
-                0.15
-            )
-        );
-}
-
-
-.hero-bow {
-    width: 250px;
-
-    top: -65px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-}
-
-
-/* =========================
-   EYEBROW
-========================= */
-
-.eyebrow {
-    position: relative;
-
-    z-index: 3;
-
-    display: inline-block;
-
-    margin:
-        5px auto
-        12px;
-
-    padding:
-        9px 30px;
-
-    color: #ad7f93;
-
-    background:
-        rgba(
-            255,
-            241,
-            247,
-            0.86
-        );
-
-    border:
-        1px solid
-        rgba(
-            240,
-            154,
-            193,
+            239,
+            150,
+            190,
             0.35
         );
 
     border-radius:
+        30px;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CONTENIDO HERO
+========================================= */
+
+.hero-inner {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 920px;
+
+    margin: 0 auto;
+
+    z-index: 3;
+}
+
+
+/* =========================================
+   MOÑO SUPERIOR
+========================================= */
+
+.hero-bow {
+    position: absolute;
+
+    width:
+        clamp(
+            180px,
+            24%,
+            260px
+        );
+
+    height: auto;
+
+    top: -80px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 8;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   ETIQUETA SUPERIOR
+========================================= */
+
+.garden-label {
+    width: fit-content;
+
+    margin:
+        0 auto
+        15px;
+
+    padding:
+        8px 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
         999px;
 
+    background:
+        rgba(
+            255,
+            242,
+            248,
+            0.88
+        );
+
+    color:
+        #aa8193;
+
     font-size:
-        0.7rem;
+        0.72rem;
 
     font-weight:
         700;
 
     letter-spacing:
-        0.23em;
+        0.22em;
 
     text-transform:
         uppercase;
 }
 
 
-/* =========================
+.garden-label span {
+    color:
+        var(--pink-500);
+}
+
+
+/* =========================================
    LOGO
-========================= */
+========================================= */
 
-.brand-logo {
-    position: relative;
-
-    z-index: 3;
-
-    display: block;
-
-    width:
-        min(
-            500px,
-            88%
+.logo-area {
+    height:
+        clamp(
+            230px,
+            25vw,
+            320px
         );
 
-    max-height:
-        330px;
+    display: flex;
 
-    margin:
-        6px auto
-        15px;
+    align-items: center;
 
-    object-fit:
-        contain;
+    justify-content: center;
+
+    margin-bottom:
+        12px;
+}
+
+
+.brand-logo {
+    width:
+        clamp(
+            390px,
+            52vw,
+            600px
+        );
+
+    max-width: 75%;
+
+    max-height: 100%;
+
+    object-fit: contain;
 
     filter:
         drop-shadow(
-            0 15px 17px
+            0 13px 14px
             rgba(
-                207,
-                89,
-                145,
-                0.18
+                198,
+                83,
+                137,
+                0.16
             )
         );
 }
 
 
-/* =========================
-   WELCOME CARD
-========================= */
+/* =========================================
+   WELCOME
+========================================= */
 
-.welcome-box {
+.welcome-card {
     position: relative;
 
-    z-index: 3;
-
-    max-width:
-        760px;
+    width: 85%;
 
     margin:
         0 auto
         20px;
 
     padding:
-        22px 34px
-        25px;
+        27px 42px;
+
+    text-align: center;
 
     background:
         linear-gradient(
@@ -414,7 +403,7 @@ body {
                 255,
                 255,
                 255,
-                0.95
+                0.96
             ),
             rgba(
                 255,
@@ -432,19 +421,17 @@ body {
         27px;
 
     box-shadow:
-        0 10px 26px
+        0 9px 22px
         rgba(
-            221,
-            127,
-            168,
-            0.10
+            206,
+            119,
+            159,
+            0.08
         );
 }
 
 
-/* segundo borde interno */
-
-.welcome-box::after {
+.welcome-card::before {
     content: "";
 
     position: absolute;
@@ -455,9 +442,9 @@ body {
         1px dashed
         rgba(
             238,
-            142,
-            185,
-            0.25
+            143,
+            184,
+            0.24
         );
 
     border-radius:
@@ -467,11 +454,31 @@ body {
 }
 
 
-.welcome-box h2 {
+.flower-title {
     position: relative;
 
     z-index: 2;
 
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+
+.flower-title span {
+    color:
+        var(--pink-500);
+
+    font-size:
+        1.3rem;
+}
+
+
+.flower-title h1 {
     font-family:
         "Great Vibes",
         cursive;
@@ -483,92 +490,59 @@ body {
             4.6rem
         );
 
+    font-weight: 400;
+
     line-height: 1;
 
     color:
-        var(--pink-5);
-
-    font-weight: 400;
-
-    margin-bottom:
-        9px;
+        var(--pink-500);
 }
 
 
-.welcome-box p {
+.welcome-card p {
     position: relative;
 
     z-index: 2;
 
-    max-width:
-        650px;
+    max-width: 680px;
 
     margin:
-        0 auto;
+        10px auto
+        0;
 
     color:
-        #947582;
-
-    font-size:
-        0.91rem;
+        #927581;
 
     line-height:
         1.75;
+
+    font-size:
+        0.92rem;
 }
 
 
-/* =========================
-   FLORES BIENVENIDA
-========================= */
-
-.welcome-flower {
-    position: absolute;
-
-    width: 75px;
-
-    top: -22px;
-
-    z-index: 4;
-}
-
-
-.welcome-flower-left {
-    left: -25px;
-}
-
-
-.welcome-flower-right {
-    right: -25px;
-
-    transform:
-        scaleX(-1);
-}
-
-
-/* =========================
+/* =========================================
    DIVISOR
-========================= */
+========================================= */
 
-.garden-divider {
-    position: relative;
+.pretty-divider {
+    width: 360px;
 
-    z-index: 3;
+    max-width: 70%;
+
+    margin:
+        17px auto
+        10px;
 
     display: flex;
 
     align-items: center;
 
-    width: 260px;
-
-    margin:
-        6px auto
-        9px;
-
-    gap: 12px;
+    gap: 11px;
 }
 
 
-.garden-divider span {
+.pretty-divider > span {
     height: 2px;
 
     flex: 1;
@@ -577,131 +551,135 @@ body {
         linear-gradient(
             90deg,
             transparent,
-            var(--pink-4)
+            var(--pink-400)
         );
 }
 
 
-.garden-divider span:last-child {
+.pretty-divider > span:last-child {
     background:
         linear-gradient(
             90deg,
-            var(--pink-4),
+            var(--pink-400),
             transparent
         );
 }
 
 
-.garden-divider b {
+.pretty-divider i,
+.pretty-divider b {
     color:
-        var(--pink-5);
+        var(--pink-500);
 
-    font-size:
-        1.2rem;
+    font-style: normal;
 }
 
 
-/* =========================
-   SOCIALS
-========================= */
+/* =========================================
+   SOCIAL HEADER
+========================================= */
 
-.socials-section {
-    position: relative;
+.social-section {
+    width: 100%;
 
-    z-index: 3;
-
-    max-width:
-        880px;
-
-    margin:
-        0 auto;
+    text-align: center;
 }
 
 
-.socials-section h3 {
+.social-section h2 {
     font-family:
         "Great Vibes",
         cursive;
 
-    color:
-        var(--pink-5);
-
     font-size:
         clamp(
-            2.6rem,
+            2.7rem,
             4vw,
             3.8rem
         );
 
-    line-height: 1;
+    color:
+        var(--pink-500);
 
     font-weight: 400;
+
+    line-height: 1;
 }
 
 
-.social-note {
+.social-section > p {
     margin:
-        5px 0
-        18px;
+        7px 0
+        19px;
 
     color:
-        var(--text-soft);
-
-    font-size:
-        0.67rem;
-
-    font-weight: 600;
-
-    letter-spacing:
-        0.15em;
+        var(--brown-soft);
 
     text-transform:
         uppercase;
+
+    font-size:
+        0.64rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.15em;
 }
 
 
-/* =========================
-   SOCIAL CARDS
-========================= */
+/* =========================================
+   SOCIAL GRID
+========================================= */
 
-.social-links {
+.social-grid {
     display: grid;
 
     grid-template-columns:
         repeat(
             3,
-            1fr
+            minmax(0, 1fr)
         );
 
-    gap: 13px;
+    gap: 14px;
 }
 
 
-.social-card {
-    min-height:
-        92px;
+/* =========================================
+   SOCIAL BUTTON
+========================================= */
 
-    display: flex;
+.social-button {
+    position: relative;
+
+    min-width: 0;
+
+    height: 100px;
+
+    padding:
+        10px 14px
+        10px 8px;
+
+    display: grid;
+
+    grid-template-columns:
+        82px 1fr auto;
 
     align-items: center;
 
-    gap: 11px;
+    gap: 9px;
 
-    padding:
-        11px 15px
-        11px 10px;
+    color: inherit;
 
     text-decoration: none;
-
-    color:
-        inherit;
 
     background:
         rgba(
             255,
-            249,
+            250,
             252,
-            0.95
+            0.97
         );
 
     border:
@@ -712,13 +690,15 @@ body {
         999px;
 
     box-shadow:
-        0 8px 17px
+        0 8px 18px
         rgba(
-            223,
-            130,
-            170,
-            0.07
+            214,
+            127,
+            167,
+            0.08
         );
+
+    overflow: hidden;
 
     transition:
         transform
@@ -728,229 +708,211 @@ body {
 }
 
 
-a.social-card:hover {
+a.social-button:hover {
     transform:
-        translateY(-5px);
+        translateY(-4px);
 
     box-shadow:
-        0 15px 27px
+        0 15px 26px
         rgba(
-            222,
-            120,
-            166,
-            0.15
+            207,
+            115,
+            158,
+            0.14
         );
 }
 
 
-/* =========================
-   ICONOS REALES
-========================= */
+/* =========================================
+   ICONOS
+========================================= */
 
-.social-image {
-    width: 75px;
-    height: 75px;
-
-    object-fit: contain;
-
-    flex-shrink: 0;
-
-    filter:
-        drop-shadow(
-            0 4px 5px
-            rgba(
-                185,
-                101,
-                144,
-                0.10
-            )
-        );
-}
-
-
-.social-info {
-    flex: 1;
+.social-art {
+    width: 82px;
+    height: 82px;
 
     display: flex;
 
-    flex-direction:
-        column;
+    align-items: center;
 
-    align-items:
-        flex-start;
-
-    gap: 2px;
-
-    text-align:
-        left;
+    justify-content: center;
 }
 
 
-.social-name {
-    color: #795666;
+.social-art img {
+    width: 76px;
+    height: 76px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   SOCIAL TEXT
+========================================= */
+
+.social-copy {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+
+    gap: 3px;
+}
+
+
+.social-copy strong {
+    color:
+        #765765;
 
     font-size:
-        0.95rem;
+        0.96rem;
 
     font-weight:
         800;
 }
 
 
-.social-description {
+.social-copy small {
     color:
-        var(--text-soft);
+        var(--brown-soft);
 
     font-size:
         0.72rem;
 }
 
 
-.social-arrow {
+/* =========================================
+   SOCIAL ARROWS
+========================================= */
+
+.round-arrow {
     width: 34px;
     height: 34px;
 
     display: flex;
 
     align-items: center;
+
     justify-content: center;
-
-    flex-shrink: 0;
-
-    color: white;
-
-    background:
-        var(--pink-4);
 
     border-radius:
         50%;
 
-    font-size:
-        1rem;
-}
-
-
-.purple-arrow {
     background:
-        var(--purple);
-}
-
-
-.soon-badge {
-    padding:
-        6px 10px;
+        var(--pink-400);
 
     color:
         white;
 
+    font-size:
+        1rem;
+
+    flex-shrink: 0;
+}
+
+
+.tiktok-arrow {
     background:
-        var(--pink-4);
+        #b79ae9;
+}
+
+
+.soon {
+    padding:
+        6px 10px;
 
     border-radius:
         999px;
 
-    font-size:
-        0.64rem;
+    background:
+        var(--pink-400);
+
+    color:
+        white;
 
     font-weight:
-        800;
+        700;
+
+    font-size:
+        0.65rem;
 }
 
 
-/* =========================
-   CONEJITOS HERO
-========================= */
+/* =========================================
+   HERO BUNNIES
+========================================= */
 
-.bunny {
+.decor-bunny {
     position: absolute;
 
+    height: auto;
+
+    z-index: 7;
+
     pointer-events: none;
-
-    z-index: 5;
-
-    filter:
-        drop-shadow(
-            0 12px 18px
-            rgba(
-                184,
-                100,
-                140,
-                0.13
-            )
-        );
 }
 
 
 .bunny-peek {
-    width: 170px;
+    width:
+        clamp(
+            115px,
+            14vw,
+            175px
+        );
 
-    top: 135px;
-    left: -95px;
+    left: -65px;
 
-    transform:
-        rotate(-6deg);
+    top: 260px;
 }
 
 
-.bunny-bow {
-    width: 150px;
+.bunny-top {
+    width:
+        clamp(
+            110px,
+            13vw,
+            160px
+        );
 
-    top: -45px;
-    right: -70px;
+    right: -55px;
 
-    transform:
-        rotate(7deg);
+    top: -55px;
 }
 
 
-/* =========================
-   REQUIREMENTS WRAPPER
-========================= */
+/* =========================================
+   REQUIREMENTS
+========================================= */
 
-.requirements-wrapper {
+.requirements-scene {
     position: relative;
 
-    max-width: 980px;
+    width: 100%;
 
     margin:
-        38px auto
-        0;
+        0 auto
+        35px;
 }
 
-
-/* =========================
-   MOÑO REQUISITOS
-========================= */
-
-.requirements-bow {
-    width: 180px;
-
-    top: -48px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-}
-
-
-/* =========================
-   REQUIREMENTS CARD
-========================= */
 
 .requirements-card {
     position: relative;
 
+    width: 100%;
+
     padding:
-        44px 40px
-        42px;
+        58px 55px
+        45px;
 
     background:
-        rgba(
-            255,
-            255,
-            255,
-            0.78
-        );
+        var(--card);
 
     border:
         2px solid
@@ -958,19 +920,17 @@ a.social-card:hover {
             255,
             255,
             255,
-            0.95
+            0.94
         );
 
     border-radius:
-        43px;
+        42px;
+
+    backdrop-filter:
+        blur(16px);
 
     box-shadow:
         var(--shadow);
-
-    backdrop-filter:
-        blur(18px);
-
-    overflow: hidden;
 }
 
 
@@ -979,35 +939,88 @@ a.social-card:hover {
 
     position: absolute;
 
-    inset: 13px;
+    inset: 14px;
 
     border:
         2px dashed
         rgba(
-            240,
-            164,
-            199,
-            0.35
+            239,
+            150,
+            190,
+            0.34
         );
 
     border-radius:
-        32px;
+        30px;
 
     pointer-events: none;
 }
 
 
-.requirements-card h2 {
+/* =========================================
+   MOÑO REQUISITOS
+========================================= */
+
+.requirements-bow {
+    position: absolute;
+
+    width:
+        clamp(
+            135px,
+            18vw,
+            195px
+        );
+
+    height: auto;
+
+    left: 50%;
+    top: -55px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 6;
+}
+
+
+/* =========================================
+   REQUIREMENTS TITLE
+========================================= */
+
+.requirements-title {
     position: relative;
 
     z-index: 2;
 
-    text-align:
-        center;
+    display: flex;
 
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom:
+        28px;
+}
+
+
+.requirements-title span {
+    color:
+        var(--pink-500);
+
+    font-size:
+        1.2rem;
+}
+
+
+.requirements-title h2 {
     font-family:
         "Great Vibes",
         cursive;
+
+    color:
+        var(--pink-500);
 
     font-size:
         clamp(
@@ -1018,208 +1031,254 @@ a.social-card:hover {
 
     line-height: 1;
 
-    color:
-        var(--pink-5);
+    font-weight: 400;
 
-    font-weight:
-        400;
-
-    margin-bottom:
-        24px;
+    text-align: center;
 }
 
 
-/* =========================
-   REQUISITOS
-========================= */
+/* =========================================
+   REQUIREMENTS GRID
+========================================= */
 
 .requirements-grid {
     position: relative;
 
     z-index: 2;
 
+    width: 92%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
     display: grid;
 
     grid-template-columns:
         repeat(
-            3,
+            6,
             1fr
         );
 
     gap: 14px;
-
-    max-width:
-        850px;
-
-    margin:
-        0 auto;
 }
 
 
-.requirement-pill {
-    min-height:
-        55px;
+/* fila superior 3 */
 
-    display: flex;
+.requirement:nth-child(1),
+.requirement:nth-child(2),
+.requirement:nth-child(3) {
+    grid-column:
+        span 2;
+}
 
-    align-items: center;
-    justify-content: center;
 
-    gap: 10px;
+/* fila inferior 4 */
+
+.requirement:nth-child(4) {
+    grid-column:
+        1 / span 2;
+}
+
+
+.requirement:nth-child(5) {
+    grid-column:
+        3 / span 2;
+}
+
+
+.requirement:nth-child(6) {
+    grid-column:
+        5 / span 2;
+}
+
+
+.requirement:nth-child(7) {
+    grid-column:
+        3 / span 2;
+}
+
+
+/* =========================================
+   REQUIREMENT PILL
+========================================= */
+
+.requirement {
+    min-height: 58px;
 
     padding:
         12px 18px;
 
-    color:
-        #856876;
+    display: flex;
 
-    background:
-        linear-gradient(
-            180deg,
-            #fff9fc,
-            #ffeff6
-        );
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 9px;
 
     border:
         1px solid
         rgba(
-            240,
-            147,
-            188,
-            0.33
+            239,
+            141,
+            184,
+            0.36
         );
 
     border-radius:
         999px;
 
-    box-shadow:
-        0 6px 14px
-        rgba(
-            221,
-            128,
-            168,
-            0.06
+    background:
+        linear-gradient(
+            180deg,
+            #fffafd,
+            #fff0f6
         );
 
-    font-size:
-        0.87rem;
-}
-
-
-.requirement-pill span {
     color:
-        var(--pink-5);
+        #816672;
 
     font-size:
-        1rem;
+        0.88rem;
 }
 
 
-/* séptimo centrado */
-
-.requirement-pill:last-child {
-    grid-column:
-        2 / 3;
+.requirement span {
+    color:
+        var(--pink-500);
 }
 
 
-/* =========================
-   CONEJITOS INFERIORES
-========================= */
+/* =========================================
+   GARDEN
+========================================= */
+
+.garden-scene {
+    position: relative;
+
+    width:
+        calc(
+            100vw
+        );
+
+    left:
+        50%;
+
+    transform:
+        translateX(-50%);
+
+    height:
+        clamp(
+            230px,
+            23vw,
+            340px
+        );
+
+    margin-top:
+        20px;
+
+    overflow: hidden;
+}
+
+
+.garden-image {
+    position: absolute;
+
+    width: 100%;
+
+    max-width: none;
+
+    left: 50%;
+    bottom: -10px;
+
+    transform:
+        translateX(-50%);
+
+    object-fit: cover;
+
+    object-position:
+        center bottom;
+}
+
+
+/* =========================================
+   GARDEN BUNNIES
+========================================= */
+
+.garden-bunny {
+    position: absolute;
+
+    bottom:
+        35px;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
 
 .bunny-tulip {
     width:
-        220px;
+        clamp(
+            150px,
+            17vw,
+            240px
+        );
 
     left:
-        -25px;
-
-    bottom:
-        45px;
-
-    z-index:
-        5;
-}
-
-
-.bunny-star {
-    width:
-        205px;
-
-    right:
-        -20px;
-
-    bottom:
-        45px;
-
-    z-index:
-        5;
-}
-
-
-/* =========================
-   JARDÍN INFERIOR
-========================= */
-
-.garden-bottom {
-    position: fixed;
-
-    width:
-        100%;
-
-    left: 0;
-    bottom: 0;
-
-    z-index: 1;
-
-    pointer-events: none;
-
-    object-fit:
-        cover;
-
-    object-position:
-        bottom center;
-
-    max-height:
-        260px;
-
-    filter:
-        drop-shadow(
-            0 -8px 20px
-            rgba(
-                130,
-                176,
-                100,
-                0.08
+        max(
+            30px,
+            calc(
+                50% - 600px
             )
         );
 }
 
 
-/* =========================
+.bunny-star {
+    width:
+        clamp(
+            145px,
+            16vw,
+            225px
+        );
+
+    right:
+        max(
+            30px,
+            calc(
+                50% - 600px
+            )
+        );
+}
+
+
+/* =========================================
    PETALS
-========================= */
+========================================= */
 
 .petals {
     position: fixed;
 
     inset: 0;
 
-    pointer-events: none;
-
     overflow: hidden;
 
-    z-index: 20;
+    pointer-events: none;
+
+    z-index: 30;
 }
 
 
 .petal {
     position: absolute;
 
-    top: -40px;
+    top: -30px;
 
-    width: 12px;
-    height: 18px;
+    width: 11px;
+    height: 17px;
 
     border-radius:
         70% 30%
@@ -1228,16 +1287,14 @@ a.social-card:hover {
     background:
         linear-gradient(
             135deg,
-            #ffd5e5,
-            #f49ec1
+            #ffd1e2,
+            #f1a1c3
         );
 
-    opacity: 0.48;
+    opacity: 0.44;
 
     animation:
-        falling
-        linear
-        infinite;
+        falling linear infinite;
 }
 
 
@@ -1263,144 +1320,236 @@ a.social-card:hover {
             translateX(-25px)
             rotate(360deg);
     }
+
 }
 
 
-/* =========================
+/* =========================================
    TABLET
-========================= */
+========================================= */
 
 @media (
-    max-width: 1050px
+    max-width: 900px
 ) {
 
-    .bunny-peek {
-        left: -40px;
-
+    .site-shell {
         width:
-            135px;
-    }
-
-    .bunny-bow {
-        right: -20px;
-
-        width:
-            125px;
-    }
-
-    .bunny-tulip,
-    .bunny-star {
-        width:
-            170px;
-    }
-
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (
-    max-width: 780px
-) {
-
-    .page {
-        padding:
-            70px 12px
-            180px;
-    }
-
-
-    .sakura-corner {
-        width:
-            42vw;
-
-        opacity:
-            0.82;
+            min(
+                760px,
+                calc(
+                    100% - 28px
+                )
+            );
     }
 
 
     .hero-card {
         padding:
-            40px 15px
-            30px;
-
-        border-radius:
-            30px;
+            60px 28px
+            38px;
     }
 
 
-    .hero-card::before {
-        inset:
-            9px;
-
-        border-radius:
-            23px;
-    }
-
-
-    .hero-bow {
-        width:
-            180px;
-
-        top:
-            -48px;
-    }
-
-
-    .eyebrow {
-        font-size:
-            0.56rem;
-
-        letter-spacing:
-            0.13em;
-
-        padding:
-            7px 16px;
-    }
-
-
-    .brand-logo {
+    .welcome-card {
         width:
             94%;
     }
 
 
-    .welcome-box {
-        padding:
-            22px 15px;
-
-        border-radius:
-            22px;
-    }
-
-
-    .welcome-box p {
-        font-size:
-            0.85rem;
-    }
-
-
-    .welcome-flower {
-        width:
-            48px;
-    }
-
-
-    .social-links {
+    .social-grid {
         grid-template-columns:
             1fr;
     }
 
 
-    .social-card {
-        min-height:
-            84px;
+    .social-button {
+        max-width:
+            540px;
+
+        width: 100%;
+
+        margin:
+            0 auto;
     }
 
 
-    .social-image {
+    .decor-bunny {
+        display: none;
+    }
+
+
+    .requirements-card {
+        padding:
+            55px 25px
+            38px;
+    }
+
+
+    .requirements-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                1fr
+            );
+
+        width: 95%;
+    }
+
+
+    .requirement,
+    .requirement:nth-child(n) {
+        grid-column:
+            auto;
+    }
+
+
+    .requirement:last-child {
+        grid-column:
+            1 / -1;
+
+        width:
+            calc(
+                50% - 7px
+            );
+
+        justify-self:
+            center;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (
+    max-width: 600px
+) {
+
+    .site-shell {
+        width:
+            calc(
+                100% - 20px
+            );
+
+        padding-top:
+            78px;
+    }
+
+
+    .top-decoration {
+        height:
+            240px;
+    }
+
+
+    .sakura {
+        width:
+            48vw;
+    }
+
+
+    .hero-card,
+    .requirements-card {
+        border-radius:
+            28px;
+    }
+
+
+    .hero-card::before,
+    .requirements-card::before {
+        inset: 9px;
+
+        border-radius:
+            21px;
+    }
+
+
+    .hero-card {
+        min-height: auto;
+
+        padding:
+            48px 13px
+            26px;
+    }
+
+
+    .hero-bow {
+        top: -48px;
+
+        width:
+            155px;
+    }
+
+
+    .garden-label {
+        font-size:
+            0.54rem;
+
+        letter-spacing:
+            0.10em;
+
+        padding:
+            7px 12px;
+    }
+
+
+    .logo-area {
+        height:
+            210px;
+    }
+
+
+    .brand-logo {
+        width:
+            100%;
+
+        max-width:
+            330px;
+    }
+
+
+    .welcome-card {
+        width:
+            100%;
+
+        padding:
+            22px 14px;
+    }
+
+
+    .welcome-card p {
+        font-size:
+            0.84rem;
+    }
+
+
+    .pretty-divider {
+        max-width:
+            80%;
+    }
+
+
+    .social-button {
+        height:
+            88px;
+
+        grid-template-columns:
+            70px 1fr auto;
+    }
+
+
+    .social-art {
+        width:
+            70px;
+
+        height:
+            70px;
+    }
+
+
+    .social-art img {
         width:
             65px;
 
@@ -1409,44 +1558,19 @@ a.social-card:hover {
     }
 
 
-    .bunny-peek,
-    .bunny-bow {
-        display:
-            none;
-    }
-
-
-    .requirements-wrapper {
-        margin-top:
-            35px;
-    }
-
-
     .requirements-card {
         padding:
-            38px 15px
-            30px;
-
-        border-radius:
-            30px;
-    }
-
-
-    .requirements-card::before {
-        inset:
-            9px;
-
-        border-radius:
-            23px;
+            45px 13px
+            28px;
     }
 
 
     .requirements-bow {
         width:
-            135px;
+            130px;
 
         top:
-            -38px;
+            -37px;
     }
 
 
@@ -1456,22 +1580,31 @@ a.social-card:hover {
     }
 
 
-    .requirement-pill:last-child {
+    .requirement,
+    .requirement:nth-child(n),
+    .requirement:last-child {
         grid-column:
             auto;
+
+        width:
+            100%;
     }
 
 
-    .bunny-tulip,
-    .bunny-star {
-        display:
-            none;
+    .garden-scene {
+        height:
+            190px;
     }
 
 
-    .garden-bottom {
-        max-height:
-            150px;
+    .garden-image {
+        width:
+            145%;
+    }
+
+
+    .garden-bunny {
+        display: none;
     }
 
 }
