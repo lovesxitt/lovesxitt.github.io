@@ -1,29 +1,29 @@
 :root {
-    --background: #fff3f8;
-    --background-light: #fff9fc;
+    --bg-1: #fff8fc;
+    --bg-2: #fff1f7;
+    --bg-3: #f8eaff;
+
+    --panel: rgba(255, 255, 255, 0.76);
+    --panel-strong: rgba(255, 255, 255, 0.88);
 
     --white: #ffffff;
 
-    --pink-ultra-light: #fff0f6;
-    --pink-light: #ffd9e8;
-    --pink-soft: #f8b7d0;
-    --pink: #ef8bb5;
-    --pink-strong: #e45f9b;
+    --pink-1: #ffe6f0;
+    --pink-2: #ffd0e1;
+    --pink-3: #f8a9c8;
+    --pink-4: #ef7fb0;
+    --pink-5: #e85b9a;
 
-    --lavender: #e9dcff;
-    --yellow: #ffe59b;
-    --sage: #b8d599;
+    --lavender: #e9ddff;
+    --lavender-2: #d9c8ff;
+    --yellow: #ffe88e;
+    --green: #b7d987;
+    --text: #7e6570;
+    --text-soft: #a28592;
 
-    --text: #765b67;
-    --text-soft: #a18490;
-
-    --border: rgba(241, 153, 192, 0.3);
+    --border: rgba(242, 169, 203, 0.36);
+    --shadow: 0 24px 60px rgba(214, 134, 173, 0.12);
 }
-
-
-/* =============================
-   RESET
-============================= */
 
 * {
     margin: 0;
@@ -37,919 +37,645 @@ html {
 
 body {
     min-height: 100vh;
-
     font-family: "Manrope", sans-serif;
-
     color: var(--text);
-
     background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(255, 195, 218, 0.5),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 90% 90%,
-            rgba(233, 220, 255, 0.45),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #fff8fb,
-            #fff1f6
-        );
-
+        radial-gradient(circle at 10% 10%, rgba(255, 207, 228, 0.50), transparent 24%),
+        radial-gradient(circle at 90% 85%, rgba(233, 221, 255, 0.45), transparent 24%),
+        linear-gradient(135deg, var(--bg-1), var(--bg-2));
     overflow-x: hidden;
 }
 
-
-/* =============================
-   PAGE
-============================= */
-
 .page {
-    width: 100%;
-    max-width: 1160px;
-
-    margin: 0 auto;
-
-    padding:
-        45px 22px
-        80px;
-
     position: relative;
-
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 55px 24px 90px;
     z-index: 2;
 }
 
+/* =========================
+   FONDO DECORATIVO
+========================= */
 
-/* =============================
-   HERO CARD
-============================= */
-
-.hero-card {
-    position: relative;
-
-    width: 100%;
-
-    padding:
-        34px 46px
-        40px;
-
-    text-align: center;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.76
-        );
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.95
-        );
-
-    border-radius: 42px;
-
-    box-shadow:
-        0 25px 60px
-        rgba(
-            193,
-            102,
-            143,
-            0.13
-        );
-
-    backdrop-filter:
-        blur(18px);
-
-    overflow: hidden;
-}
-
-
-/* =============================
-   DECORACIONES DEL CARD
-============================= */
-
-.hero-decoration {
+.bg-cloud {
     position: absolute;
-
-    color: var(--pink-soft);
-
-    pointer-events: none;
-
-    opacity: 0.55;
+    width: 340px;
+    height: 220px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.28);
+    filter: blur(10px);
+    z-index: 0;
 }
 
-.deco-one {
-    top: 35px;
-    left: 45px;
-
-    font-size: 1.4rem;
-
-    transform: rotate(-15deg);
+.bg-cloud-left {
+    left: -40px;
+    top: 390px;
 }
 
-.deco-two {
-    right: 58px;
-    top: 70px;
-
-    font-size: 1.2rem;
+.bg-cloud-right {
+    right: -30px;
+    top: 380px;
 }
 
-.deco-three {
-    right: 110px;
-    bottom: 55px;
-
-    font-size: 1.6rem;
+.branch {
+    position: absolute;
+    z-index: 0;
+    width: 230px;
+    height: 150px;
 }
 
-
-/* =============================
-   EYEBROW
-============================= */
-
-.eyebrow {
-    margin-bottom: 4px;
-
-    color: #ae8a98;
-
-    font-size: 0.76rem;
-
-    font-weight: 600;
-
-    letter-spacing: 0.24em;
-
-    text-transform: uppercase;
-}
-
-
-/* =============================
-   LOGO
-============================= */
-
-.brand-logo {
-    display: block;
-
-    width:
-        min(
-            520px,
-            82%
-        );
-
-    max-height: 390px;
-
-    object-fit: contain;
-
-    margin:
-        -5px auto
-        5px;
-
-    filter:
-        drop-shadow(
-            0 13px 18px
-            rgba(
-                208,
-                99,
-                151,
-                0.12
-            )
-        );
-}
-
-
-/* =============================
-   BIENVENIDA
-============================= */
-
-.welcome-box {
-    width: 100%;
-
-    max-width: 820px;
-
-    margin:
-        0 auto
-        22px;
-
-    padding:
-        23px 32px
-        25px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(
-                255,
-                244,
-                249,
-                0.96
-            ),
-            rgba(
-                255,
-                250,
-                252,
-                0.98
-            )
-        );
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 28px;
-
-    box-shadow:
-        0 12px 28px
-        rgba(
-            222,
-            124,
-            168,
-            0.08
-        );
-
-    position: relative;
-}
-
-
-/* cinta sutil superior */
-
-.welcome-box::before {
+.branch::before {
     content: "";
-
     position: absolute;
-
-    top: -4px;
-    left: 50%;
-
-    transform:
-        translateX(-50%);
-
-    width: 90px;
-    height: 7px;
-
-    background:
-        linear-gradient(
-            90deg,
-            var(--pink-light),
-            var(--pink),
-            var(--pink-light)
-        );
-
-    border-radius:
-        999px;
-}
-
-
-.welcome-heading {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom: 8px;
-}
-
-.welcome-heading span {
-    color: var(--pink);
-}
-
-.welcome-heading h2 {
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    color:
-        var(--pink-strong);
-
-    font-size:
-        clamp(
-            2.2rem,
-            4vw,
-            3.2rem
-        );
-
-    font-weight: 400;
-}
-
-
-.welcome-box p {
-    max-width: 720px;
-
-    margin: 0 auto;
-
-    color: #896f7a;
-
-    font-size: 0.93rem;
-
-    line-height: 1.85;
-}
-
-
-/* =============================
-   DIVISOR
-============================= */
-
-.garden-divider {
-    width: 190px;
-
-    margin:
-        2px auto
-        18px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-}
-
-.garden-divider span {
-    height: 1px;
-
-    flex: 1;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            var(--pink-soft)
-        );
-}
-
-.garden-divider span:last-child {
-    background:
-        linear-gradient(
-            90deg,
-            var(--pink-soft),
-            transparent
-        );
-}
-
-.garden-divider b {
-    color: var(--pink);
-    font-size: 1rem;
-}
-
-
-/* =============================
-   SOCIAL SECTION
-============================= */
-
-.socials-section {
-    max-width: 960px;
-
-    margin:
-        0 auto;
-}
-
-.socials-section h3 {
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    color:
-        var(--pink-strong);
-
-    font-size:
-        clamp(
-            2rem,
-            3vw,
-            2.7rem
-        );
-
-    font-weight: 400;
-
-    margin-bottom: 0;
-}
-
-.social-subtitle {
-    color: var(--text-soft);
-
-    font-size: 0.76rem;
-
-    margin-bottom: 17px;
-}
-
-
-/* =============================
-   SOCIAL CARDS
-============================= */
-
-.social-links {
-    display: grid;
-
-    grid-template-columns:
-        repeat(
-            3,
-            1fr
-        );
-
-    gap: 14px;
-}
-
-
-.social-card {
-    min-height: 88px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    padding:
-        14px 16px;
-
-    text-decoration: none;
-
-    color: inherit;
-
-    background:
-        rgba(
-            255,
-            248,
-            252,
-            0.92
-        );
-
-    border:
-        1px solid
-        var(--border);
-
-    border-radius: 24px;
-
-    box-shadow:
-        0 9px 20px
-        rgba(
-            222,
-            130,
-            171,
-            0.07
-        );
-
-    transition:
-        transform
-        0.25s ease,
-        box-shadow
-        0.25s ease;
-}
-
-
-a.social-card:hover {
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 16px 30px
-        rgba(
-            222,
-            130,
-            171,
-            0.13
-        );
-}
-
-
-/* =============================
-   ICONOS KAWAII
-============================= */
-
-.social-icon {
-    width: 55px;
-    height: 55px;
-
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 18px;
-
-    font-size: 1.5rem;
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.85
-        );
-
-    box-shadow:
-        inset
-        0 1px 0
-        rgba(
-            255,
-            255,
-            255,
-            0.9
-        );
-}
-
-
-.whatsapp-icon {
-    background:
-        linear-gradient(
-            135deg,
-            #ffdce9,
-            #fff1f6
-        );
-}
-
-
-.tiktok-icon {
-    background:
-        linear-gradient(
-            135deg,
-            #e8ddff,
-            #f7f2ff
-        );
-}
-
-
-.instagram-icon {
-    background:
-        linear-gradient(
-            135deg,
-            #ffe5ed,
-            #fff4d9
-        );
-}
-
-
-/* =============================
-   SOCIAL TEXT
-============================= */
-
-.social-info {
-    flex: 1;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    gap: 3px;
-
-    text-align: left;
-}
-
-
-.social-name {
-    color: #765a67;
-
-    font-size: 1rem;
-
-    font-weight: 700;
-}
-
-
-.social-description {
-    color:
-        var(--text-soft);
-
-    font-size: 0.74rem;
-}
-
-
-.social-arrow {
-    color:
-        var(--pink-strong);
-
-    font-size: 1rem;
-}
-
-
-.soon-badge {
-    padding:
-        6px 10px;
-
-    color:
-        var(--pink-strong);
-
-    background:
-        #ffe4ef;
-
-    border-radius:
-        999px;
-
-    font-size: 0.66rem;
-
-    font-weight: 700;
-}
-
-
-.coming-soon {
+    width: 180px;
+    height: 8px;
+    background: #a97f73;
+    border-radius: 999px;
+    top: 44px;
     opacity: 0.9;
 }
 
+.branch-left {
+    left: -10px;
+    top: 0;
+}
 
-/* =============================
+.branch-left::before {
+    transform: rotate(25deg);
+    left: 0;
+}
+
+.branch-right {
+    right: -10px;
+    top: 0;
+}
+
+.branch-right::before {
+    transform: rotate(-25deg);
+    right: 0;
+}
+
+.branch-flower {
+    position: absolute;
+    font-size: 2rem;
+    filter: drop-shadow(0 4px 4px rgba(233, 120, 170, 0.10));
+}
+
+.branch-left .branch-flower:nth-child(1) {
+    left: 18px;
+    top: 18px;
+}
+
+.branch-left .branch-flower:nth-child(2) {
+    left: 58px;
+    top: 42px;
+}
+
+.branch-left .branch-flower:nth-child(3) {
+    left: 95px;
+    top: 18px;
+}
+
+.branch-left .branch-flower:nth-child(4) {
+    left: 128px;
+    top: 48px;
+}
+
+.branch-right .branch-flower:nth-child(1) {
+    right: 18px;
+    top: 18px;
+}
+
+.branch-right .branch-flower:nth-child(2) {
+    right: 58px;
+    top: 42px;
+}
+
+.branch-right .branch-flower:nth-child(3) {
+    right: 95px;
+    top: 18px;
+}
+
+.branch-right .branch-flower:nth-child(4) {
+    right: 128px;
+    top: 48px;
+}
+
+/* =========================
+   CONEJITOS
+========================= */
+
+.bunny {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(180deg, #fffefe, #fff5fa);
+    border: 3px solid #f5bfd4;
+    border-radius: 50%;
+    box-shadow: 0 14px 32px rgba(230, 150, 187, 0.12);
+    z-index: 1;
+}
+
+.bunny-ear {
+    position: absolute;
+    width: 34px;
+    height: 70px;
+    background: linear-gradient(180deg, #fffefe, #fff5fa);
+    border: 3px solid #f5bfd4;
+    border-radius: 999px;
+    top: -34px;
+}
+
+.bunny-ear::after {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 42px;
+    background: #ffdce9;
+    border-radius: 999px;
+    top: 10px;
+    left: 7px;
+}
+
+.ear-left {
+    left: 18px;
+    transform: rotate(-18deg);
+}
+
+.ear-right {
+    right: 18px;
+    transform: rotate(18deg);
+}
+
+.bunny-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    color: #7e6570;
+    padding-top: 12px;
+}
+
+.bunny-flower,
+.bunny-bow,
+.bunny-tulip,
+.bunny-star {
+    position: absolute;
+    font-size: 1.6rem;
+}
+
+.bunny-flower {
+    right: 8px;
+    top: 10px;
+}
+
+.bunny-bow {
+    right: 2px;
+    top: 2px;
+}
+
+.bunny-tulip {
+    left: 10px;
+    bottom: -8px;
+}
+
+.bunny-star {
+    right: 10px;
+    bottom: -8px;
+}
+
+.bunny-left-middle {
+    left: 18px;
+    top: 295px;
+}
+
+.bunny-top-right {
+    right: 28px;
+    top: 22px;
+}
+
+.bunny-bottom-left {
+    left: 18px;
+    bottom: 10px;
+}
+
+.bunny-bottom-right {
+    right: 18px;
+    bottom: 0;
+}
+
+/* =========================
+   HERO CARD
+========================= */
+
+.hero-card,
+.requirements-card {
+    position: relative;
+    z-index: 2;
+    background: var(--panel);
+    border: 1px solid rgba(255, 255, 255, 0.96);
+    border-radius: 42px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(18px);
+    overflow: hidden;
+}
+
+.hero-card {
+    max-width: 980px;
+    margin: 0 auto 36px;
+    padding: 38px 42px 40px;
+}
+
+.hero-border-dots {
+    position: absolute;
+    inset: 14px;
+    border: 2px dashed rgba(245, 196, 220, 0.45);
+    border-radius: 32px;
+    pointer-events: none;
+}
+
+.top-bow {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.8rem;
+    filter: drop-shadow(0 3px 5px rgba(225, 145, 184, 0.15));
+}
+
+.eyebrow {
+    margin-top: 12px;
+    text-align: center;
+    color: #af8e9c;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.brand-logo {
+    display: block;
+    width: min(460px, 90%);
+    margin: 0 auto 18px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 14px rgba(228, 106, 160, 0.15));
+}
+
+/* =========================
+   BIENVENIDA
+========================= */
+
+.welcome-box {
+    max-width: 760px;
+    margin: 0 auto 20px;
+    padding: 24px 26px;
+    background: rgba(255, 252, 253, 0.94);
+    border: 1px solid var(--border);
+    border-radius: 26px;
+    box-shadow: 0 10px 28px rgba(233, 153, 189, 0.08);
+    text-align: center;
+}
+
+.welcome-box h2 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(2.5rem, 5vw, 4.6rem);
+    color: var(--pink-5);
+    font-weight: 400;
+    margin-bottom: 8px;
+    line-height: 1;
+}
+
+.welcome-box p {
+    max-width: 660px;
+    margin: 0 auto;
+    color: #927681;
+    font-size: 0.98rem;
+    line-height: 1.8;
+}
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider-title {
+    width: 260px;
+    margin: 8px auto 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.divider-title span {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #f1a7ca);
+}
+
+.divider-title span:last-child {
+    background: linear-gradient(90deg, #f1a7ca, transparent);
+}
+
+.divider-title b {
+    color: var(--pink-5);
+    font-size: 1rem;
+}
+
+/* =========================
+   REDES
+========================= */
+
+.socials-section {
+    max-width: 880px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.socials-section h3 {
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+    color: var(--pink-5);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.social-note {
+    color: var(--text-soft);
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    margin-bottom: 16px;
+}
+
+.social-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+}
+
+.social-card {
+    min-height: 94px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: rgba(255, 250, 252, 0.96);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 10px 22px rgba(229, 154, 190, 0.08);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+a.social-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px rgba(227, 145, 183, 0.14);
+}
+
+.social-icon {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.88);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.whatsapp-icon {
+    background: linear-gradient(135deg, #ffe0eb, #fff4f8);
+}
+
+.tiktok-icon {
+    background: linear-gradient(135deg, #efe6ff, #f9f5ff);
+}
+
+.instagram-icon {
+    background: linear-gradient(135deg, #fff0d9, #fff7eb);
+}
+
+.social-info {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.social-name {
+    color: #7c5f6c;
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.social-description {
+    color: var(--text-soft);
+    font-size: 0.78rem;
+}
+
+.social-arrow {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #f59bc4;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.soon-badge {
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: #ffb9d5;
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 800;
+    flex-shrink: 0;
+}
+
+.coming-soon {
+    opacity: 0.96;
+}
+
+/* =========================
    REQUISITOS
-============================= */
+========================= */
 
 .requirements-card {
-    margin-top: 28px;
-
-    padding:
-        42px 30px
-        45px;
-
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.76
-        );
-
-    border:
-        1px solid
-        rgba(
-            255,
-            255,
-            255,
-            0.95
-        );
-
-    border-radius: 42px;
-
-    box-shadow:
-        0 25px 60px
-        rgba(
-            193,
-            102,
-            143,
-            0.11
-        );
-
-    backdrop-filter:
-        blur(18px);
-}
-
-
-.section-heading {
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-
-    gap: 14px;
-
-    margin-bottom: 25px;
-}
-
-
-.section-heading h2 {
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    color:
-        var(--pink-strong);
-
-    font-size:
-        clamp(
-            2.5rem,
-            5vw,
-            4rem
-        );
-
-    font-weight: 400;
-}
-
-
-.section-heading span {
-    font-size: 1rem;
-}
-
-
-/* =============================
-   REQUISITOS ITEMS
-============================= */
-
-.requirements-list {
-    list-style: none;
-
-    width: 100%;
-    max-width: 750px;
-
+    max-width: 980px;
     margin: 0 auto;
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 14px;
+    padding: 34px 36px 38px;
 }
 
+.section-bow {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2.3rem;
+}
 
-.requirements-list li {
-    min-height: 61px;
+.requirements-card h2 {
+    text-align: center;
+    font-family: "Great Vibes", cursive;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    color: var(--pink-5);
+    font-weight: 400;
+    margin-bottom: 20px;
+}
 
-    padding:
-        14px 20px;
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    max-width: 860px;
+    margin: 0 auto;
+}
 
+.requirement-pill {
+    min-height: 58px;
+    padding: 14px 18px;
+    background: rgba(255, 248, 251, 0.96);
+    border: 1px solid var(--border);
+    border-radius: 999px;
     display: flex;
-
     align-items: center;
-
-    gap: 14px;
-
-    color: #806975;
-
-    background:
-        linear-gradient(
-            90deg,
-            #fdecf4,
-            #fff5f9
-        );
-
-    border-radius:
-        19px;
-
-    border-left:
-        5px solid
-        var(--pink-strong);
-
-    font-size: 0.94rem;
+    justify-content: center;
+    color: #866a76;
+    font-size: 0.95rem;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(232, 155, 188, 0.06);
 }
 
-
-.requirements-list li span {
-    color:
-        var(--pink-strong);
-
-    font-size: 1rem;
-}
-
-
-/* =============================
-   PETALS
-============================= */
+/* =========================
+   PÉTALOS
+========================= */
 
 .petals {
     position: fixed;
-
     inset: 0;
-
     overflow: hidden;
-
     pointer-events: none;
-
     z-index: 20;
 }
 
-
 .petal {
     position: absolute;
-
     top: -30px;
-
-    width: 11px;
-    height: 16px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #ffd1e2,
-            #f2a5c5
-        );
-
-    border-radius:
-        70% 30%
-        70% 30%;
-
-    opacity: 0.48;
-
-    animation:
-        falling
-        linear
-        infinite;
+    width: 12px;
+    height: 18px;
+    background: linear-gradient(135deg, #ffd2e3, #f4a8c7);
+    border-radius: 70% 30% 70% 30%;
+    opacity: 0.52;
+    animation: falling linear infinite;
 }
 
-
 @keyframes falling {
-
     0% {
-        transform:
-            translateY(-10vh)
-            translateX(0)
-            rotate(0deg);
+        transform: translateY(-10vh) translateX(0) rotate(0deg);
     }
 
     50% {
-        transform:
-            translateY(50vh)
-            translateX(40px)
-            rotate(180deg);
+        transform: translateY(50vh) translateX(40px) rotate(180deg);
     }
 
     100% {
-        transform:
-            translateY(110vh)
-            translateX(-25px)
-            rotate(360deg);
+        transform: translateY(110vh) translateX(-25px) rotate(360deg);
     }
-
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 
-/* =============================
-   TABLET
-============================= */
-
-@media (
-    max-width: 900px
-) {
-
-    .social-links {
-        grid-template-columns:
-            1fr;
+@media (max-width: 1050px) {
+    .bunny-left-middle,
+    .bunny-top-right,
+    .bunny-bottom-left,
+    .bunny-bottom-right {
+        transform: scale(0.86);
     }
-
-    .hero-card {
-        padding:
-            30px 25px
-            34px;
-    }
-
 }
 
+@media (max-width: 900px) {
+    .social-links,
+    .requirements-grid {
+        grid-template-columns: 1fr;
+    }
 
-/* =============================
-   MOBILE
-============================= */
+    .hero-card,
+    .requirements-card {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
 
-@media (
-    max-width: 600px
-) {
+    .bunny-left-middle,
+    .bunny-top-right {
+        display: none;
+    }
+}
 
+@media (max-width: 640px) {
     .page {
-        padding:
-            20px 12px
-            55px;
+        padding: 28px 12px 56px;
     }
 
     .hero-card,
     .requirements-card {
         border-radius: 28px;
+        padding: 26px 14px 28px;
     }
 
-    .hero-card {
-        padding:
-            25px 14px
-            28px;
+    .hero-border-dots {
+        inset: 10px;
+        border-radius: 22px;
     }
 
     .brand-logo {
-        width:
-            min(
-                390px,
-                95%
-            );
+        width: min(370px, 96%);
     }
 
     .welcome-box {
-        padding:
-            22px 16px;
+        padding: 20px 14px;
+        border-radius: 20px;
     }
 
     .welcome-box p {
-        font-size: 0.86rem;
+        font-size: 0.9rem;
+        line-height: 1.7;
     }
 
     .eyebrow {
         font-size: 0.62rem;
-
-        letter-spacing:
-            0.17em;
+        letter-spacing: 0.14em;
     }
 
-    .requirements-card {
-        padding:
-            30px 14px;
+    .social-card {
+        border-radius: 28px;
     }
 
-    .requirements-list li {
-        min-height: 57px;
-
-        padding:
-            13px 15px;
-
-        font-size: 0.89rem;
+    .bunny-bottom-left,
+    .bunny-bottom-right,
+    .branch {
+        display: none;
     }
 
+    .bg-cloud-left,
+    .bg-cloud-right {
+        opacity: 0.5;
+    }
 }
