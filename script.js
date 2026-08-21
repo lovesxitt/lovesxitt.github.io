@@ -3,11 +3,7 @@ const petalsContainer =
 
 const numberOfPetals = 18;
 
-for (
-    let i = 0;
-    i < numberOfPetals;
-    i++
-) {
+for (let i = 0; i < numberOfPetals; i++) {
     const petal =
         document.createElement("span");
 
@@ -25,19 +21,10 @@ for (
     const scale =
         0.6 + Math.random() * 0.8;
 
-    petal.style.left =
-        `${position}%`;
+    petal.style.left = `${position}%`;
+    petal.style.animationDuration = `${duration}s`;
+    petal.style.animationDelay = `${delay}s`;
+    petal.style.transform = `scale(${scale})`;
 
-    petal.style.animationDuration =
-        `${duration}s`;
-
-    petal.style.animationDelay =
-        `${delay}s`;
-
-    petal.style.transform =
-        `scale(${scale})`;
-
-    petalsContainer.appendChild(
-        petal
-    );
+    petalsContainer.appendChild(petal);
 }
