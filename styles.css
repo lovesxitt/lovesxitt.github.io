@@ -1,29 +1,42 @@
 :root {
-    --bg-1: #fff8fc;
-    --bg-2: #fff1f7;
-    --bg-3: #f8eaff;
-
-    --panel: rgba(255, 255, 255, 0.76);
-    --panel-strong: rgba(255, 255, 255, 0.88);
+    --background-top: #fff4fa;
+    --background-bottom: #fce8f4;
 
     --white: #ffffff;
 
-    --pink-1: #ffe6f0;
-    --pink-2: #ffd0e1;
-    --pink-3: #f8a9c8;
-    --pink-4: #ef7fb0;
-    --pink-5: #e85b9a;
+    --pink-1: #fff0f6;
+    --pink-2: #ffdce9;
+    --pink-3: #f8b6d1;
+    --pink-4: #ef89b7;
+    --pink-5: #eb5fa1;
 
-    --lavender: #e9ddff;
-    --lavender-2: #d9c8ff;
-    --yellow: #ffe88e;
-    --green: #b7d987;
-    --text: #7e6570;
-    --text-soft: #a28592;
+    --purple: #b590e8;
 
-    --border: rgba(242, 169, 203, 0.36);
-    --shadow: 0 24px 60px rgba(214, 134, 173, 0.12);
+    --text: #795e6b;
+    --text-soft: #a38291;
+
+    --border:
+        rgba(
+            240,
+            137,
+            181,
+            0.35
+        );
+
+    --shadow:
+        0 26px 60px
+        rgba(
+            204,
+            105,
+            150,
+            0.15
+        );
 }
+
+
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -37,645 +50,1428 @@ html {
 
 body {
     min-height: 100vh;
-    font-family: "Manrope", sans-serif;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
     color: var(--text);
+
     background:
-        radial-gradient(circle at 10% 10%, rgba(255, 207, 228, 0.50), transparent 24%),
-        radial-gradient(circle at 90% 85%, rgba(233, 221, 255, 0.45), transparent 24%),
-        linear-gradient(135deg, var(--bg-1), var(--bg-2));
+        radial-gradient(
+            circle at 10% 12%,
+            rgba(255, 204, 225, 0.55),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 90% 80%,
+            rgba(229, 208, 255, 0.36),
+            transparent 28%
+        ),
+
+        linear-gradient(
+            180deg,
+            var(--background-top),
+            var(--background-bottom)
+        );
+
     overflow-x: hidden;
 }
 
-.page {
-    position: relative;
-    width: 100%;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 55px 24px 90px;
-    z-index: 2;
-}
 
 /* =========================
-   FONDO DECORATIVO
+   PAGE
 ========================= */
 
-.bg-cloud {
+.page {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1250px;
+
+    margin: 0 auto;
+
+    padding:
+        95px 25px
+        250px;
+
+    z-index: 3;
+}
+
+
+/* =========================
+   SAKURA SUPERIOR
+========================= */
+
+.sakura-corner {
     position: absolute;
-    width: 340px;
-    height: 220px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.28);
-    filter: blur(10px);
-    z-index: 0;
-}
 
-.bg-cloud-left {
-    left: -40px;
-    top: 390px;
-}
-
-.bg-cloud-right {
-    right: -30px;
-    top: 380px;
-}
-
-.branch {
-    position: absolute;
-    z-index: 0;
-    width: 230px;
-    height: 150px;
-}
-
-.branch::before {
-    content: "";
-    position: absolute;
-    width: 180px;
-    height: 8px;
-    background: #a97f73;
-    border-radius: 999px;
-    top: 44px;
-    opacity: 0.9;
-}
-
-.branch-left {
-    left: -10px;
     top: 0;
+
+    width:
+        min(
+            390px,
+            27vw
+        );
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 7px 12px
+            rgba(
+                210,
+                103,
+                147,
+                0.08
+            )
+        );
 }
 
-.branch-left::before {
-    transform: rotate(25deg);
+
+.sakura-left {
     left: 0;
 }
 
-.branch-right {
-    right: -10px;
-    top: 0;
-}
 
-.branch-right::before {
-    transform: rotate(-25deg);
+.sakura-right {
     right: 0;
 }
 
-.branch-flower {
-    position: absolute;
-    font-size: 2rem;
-    filter: drop-shadow(0 4px 4px rgba(233, 120, 170, 0.10));
-}
-
-.branch-left .branch-flower:nth-child(1) {
-    left: 18px;
-    top: 18px;
-}
-
-.branch-left .branch-flower:nth-child(2) {
-    left: 58px;
-    top: 42px;
-}
-
-.branch-left .branch-flower:nth-child(3) {
-    left: 95px;
-    top: 18px;
-}
-
-.branch-left .branch-flower:nth-child(4) {
-    left: 128px;
-    top: 48px;
-}
-
-.branch-right .branch-flower:nth-child(1) {
-    right: 18px;
-    top: 18px;
-}
-
-.branch-right .branch-flower:nth-child(2) {
-    right: 58px;
-    top: 42px;
-}
-
-.branch-right .branch-flower:nth-child(3) {
-    right: 95px;
-    top: 18px;
-}
-
-.branch-right .branch-flower:nth-child(4) {
-    right: 128px;
-    top: 48px;
-}
 
 /* =========================
-   CONEJITOS
+   WRAPPER HERO
 ========================= */
 
-.bunny {
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    background: linear-gradient(180deg, #fffefe, #fff5fa);
-    border: 3px solid #f5bfd4;
-    border-radius: 50%;
-    box-shadow: 0 14px 32px rgba(230, 150, 187, 0.12);
-    z-index: 1;
+.hero-wrapper {
+    position: relative;
+
+    max-width: 980px;
+
+    margin: 0 auto;
 }
 
-.bunny-ear {
-    position: absolute;
-    width: 34px;
-    height: 70px;
-    background: linear-gradient(180deg, #fffefe, #fff5fa);
-    border: 3px solid #f5bfd4;
-    border-radius: 999px;
-    top: -34px;
-}
-
-.bunny-ear::after {
-    content: "";
-    position: absolute;
-    width: 14px;
-    height: 42px;
-    background: #ffdce9;
-    border-radius: 999px;
-    top: 10px;
-    left: 7px;
-}
-
-.ear-left {
-    left: 18px;
-    transform: rotate(-18deg);
-}
-
-.ear-right {
-    right: 18px;
-    transform: rotate(18deg);
-}
-
-.bunny-face {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.15rem;
-    color: #7e6570;
-    padding-top: 12px;
-}
-
-.bunny-flower,
-.bunny-bow,
-.bunny-tulip,
-.bunny-star {
-    position: absolute;
-    font-size: 1.6rem;
-}
-
-.bunny-flower {
-    right: 8px;
-    top: 10px;
-}
-
-.bunny-bow {
-    right: 2px;
-    top: 2px;
-}
-
-.bunny-tulip {
-    left: 10px;
-    bottom: -8px;
-}
-
-.bunny-star {
-    right: 10px;
-    bottom: -8px;
-}
-
-.bunny-left-middle {
-    left: 18px;
-    top: 295px;
-}
-
-.bunny-top-right {
-    right: 28px;
-    top: 22px;
-}
-
-.bunny-bottom-left {
-    left: 18px;
-    bottom: 10px;
-}
-
-.bunny-bottom-right {
-    right: 18px;
-    bottom: 0;
-}
 
 /* =========================
    HERO CARD
 ========================= */
 
-.hero-card,
-.requirements-card {
+.hero-card {
     position: relative;
-    z-index: 2;
-    background: var(--panel);
-    border: 1px solid rgba(255, 255, 255, 0.96);
-    border-radius: 42px;
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(18px);
+
+    padding:
+        50px 46px
+        42px;
+
+    text-align: center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.79
+        );
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.95
+        );
+
+    border-radius:
+        44px;
+
+    box-shadow:
+        var(--shadow);
+
+    backdrop-filter:
+        blur(18px);
+
     overflow: hidden;
 }
 
-.hero-card {
-    max-width: 980px;
-    margin: 0 auto 36px;
-    padding: 38px 42px 40px;
-}
 
-.hero-border-dots {
+/* línea interior kawaii */
+
+.hero-card::before {
+    content: "";
+
     position: absolute;
+
     inset: 14px;
-    border: 2px dashed rgba(245, 196, 220, 0.45);
-    border-radius: 32px;
+
+    border:
+        2px dashed
+        rgba(
+            242,
+            170,
+            202,
+            0.40
+        );
+
+    border-radius:
+        33px;
+
     pointer-events: none;
 }
 
-.top-bow {
+
+/* glow interno */
+
+.hero-card::after {
+    content: "";
+
     position: absolute;
-    top: -8px;
+
+    width: 300px;
+    height: 300px;
+
+    top: 110px;
     left: 50%;
-    transform: translateX(-50%);
-    font-size: 2.8rem;
-    filter: drop-shadow(0 3px 5px rgba(225, 145, 184, 0.15));
+
+    transform:
+        translateX(-50%);
+
+    background:
+        rgba(
+            255,
+            207,
+            226,
+            0.22
+        );
+
+    filter:
+        blur(75px);
+
+    border-radius:
+        50%;
+
+    pointer-events: none;
 }
 
-.eyebrow {
-    margin-top: 12px;
-    text-align: center;
-    color: #af8e9c;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-}
-
-.brand-logo {
-    display: block;
-    width: min(460px, 90%);
-    margin: 0 auto 18px;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 14px rgba(228, 106, 160, 0.15));
-}
 
 /* =========================
-   BIENVENIDA
+   MOÑO SUPERIOR
+========================= */
+
+.bow {
+    position: absolute;
+
+    z-index: 7;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 6px 10px
+            rgba(
+                221,
+                103,
+                158,
+                0.15
+            )
+        );
+}
+
+
+.hero-bow {
+    width: 250px;
+
+    top: -65px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* =========================
+   EYEBROW
+========================= */
+
+.eyebrow {
+    position: relative;
+
+    z-index: 3;
+
+    display: inline-block;
+
+    margin:
+        5px auto
+        12px;
+
+    padding:
+        9px 30px;
+
+    color: #ad7f93;
+
+    background:
+        rgba(
+            255,
+            241,
+            247,
+            0.86
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            154,
+            193,
+            0.35
+        );
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.23em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.brand-logo {
+    position: relative;
+
+    z-index: 3;
+
+    display: block;
+
+    width:
+        min(
+            500px,
+            88%
+        );
+
+    max-height:
+        330px;
+
+    margin:
+        6px auto
+        15px;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            0 15px 17px
+            rgba(
+                207,
+                89,
+                145,
+                0.18
+            )
+        );
+}
+
+
+/* =========================
+   WELCOME CARD
 ========================= */
 
 .welcome-box {
-    max-width: 760px;
-    margin: 0 auto 20px;
-    padding: 24px 26px;
-    background: rgba(255, 252, 253, 0.94);
-    border: 1px solid var(--border);
-    border-radius: 26px;
-    box-shadow: 0 10px 28px rgba(233, 153, 189, 0.08);
-    text-align: center;
+    position: relative;
+
+    z-index: 3;
+
+    max-width:
+        760px;
+
+    margin:
+        0 auto
+        20px;
+
+    padding:
+        22px 34px
+        25px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(
+                255,
+                255,
+                255,
+                0.95
+            ),
+            rgba(
+                255,
+                243,
+                249,
+                0.95
+            )
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        27px;
+
+    box-shadow:
+        0 10px 26px
+        rgba(
+            221,
+            127,
+            168,
+            0.10
+        );
 }
+
+
+/* segundo borde interno */
+
+.welcome-box::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 7px;
+
+    border:
+        1px dashed
+        rgba(
+            238,
+            142,
+            185,
+            0.25
+        );
+
+    border-radius:
+        20px;
+
+    pointer-events: none;
+}
+
 
 .welcome-box h2 {
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(2.5rem, 5vw, 4.6rem);
-    color: var(--pink-5);
-    font-weight: 400;
-    margin-bottom: 8px;
+    position: relative;
+
+    z-index: 2;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(
+            3rem,
+            5vw,
+            4.6rem
+        );
+
     line-height: 1;
+
+    color:
+        var(--pink-5);
+
+    font-weight: 400;
+
+    margin-bottom:
+        9px;
 }
+
 
 .welcome-box p {
-    max-width: 660px;
-    margin: 0 auto;
-    color: #927681;
-    font-size: 0.98rem;
-    line-height: 1.8;
+    position: relative;
+
+    z-index: 2;
+
+    max-width:
+        650px;
+
+    margin:
+        0 auto;
+
+    color:
+        #947582;
+
+    font-size:
+        0.91rem;
+
+    line-height:
+        1.75;
 }
 
+
 /* =========================
-   DIVIDER
+   FLORES BIENVENIDA
 ========================= */
 
-.divider-title {
-    width: 260px;
-    margin: 8px auto 10px;
+.welcome-flower {
+    position: absolute;
+
+    width: 75px;
+
+    top: -22px;
+
+    z-index: 4;
+}
+
+
+.welcome-flower-left {
+    left: -25px;
+}
+
+
+.welcome-flower-right {
+    right: -25px;
+
+    transform:
+        scaleX(-1);
+}
+
+
+/* =========================
+   DIVISOR
+========================= */
+
+.garden-divider {
+    position: relative;
+
+    z-index: 3;
+
     display: flex;
+
     align-items: center;
+
+    width: 260px;
+
+    margin:
+        6px auto
+        9px;
+
     gap: 12px;
 }
 
-.divider-title span {
-    flex: 1;
+
+.garden-divider span {
     height: 2px;
-    background: linear-gradient(90deg, transparent, #f1a7ca);
+
+    flex: 1;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            var(--pink-4)
+        );
 }
 
-.divider-title span:last-child {
-    background: linear-gradient(90deg, #f1a7ca, transparent);
+
+.garden-divider span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            var(--pink-4),
+            transparent
+        );
 }
 
-.divider-title b {
-    color: var(--pink-5);
-    font-size: 1rem;
+
+.garden-divider b {
+    color:
+        var(--pink-5);
+
+    font-size:
+        1.2rem;
 }
+
 
 /* =========================
-   REDES
+   SOCIALS
 ========================= */
 
 .socials-section {
-    max-width: 880px;
-    margin: 0 auto;
-    text-align: center;
+    position: relative;
+
+    z-index: 3;
+
+    max-width:
+        880px;
+
+    margin:
+        0 auto;
 }
+
 
 .socials-section h3 {
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(2.2rem, 4vw, 3.6rem);
-    color: var(--pink-5);
-    font-weight: 400;
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    color:
+        var(--pink-5);
+
+    font-size:
+        clamp(
+            2.6rem,
+            4vw,
+            3.8rem
+        );
+
     line-height: 1;
+
+    font-weight: 400;
 }
 
+
 .social-note {
-    color: var(--text-soft);
-    font-size: 0.76rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-top: 4px;
-    margin-bottom: 16px;
+    margin:
+        5px 0
+        18px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.67rem;
+
+    font-weight: 600;
+
+    letter-spacing:
+        0.15em;
+
+    text-transform:
+        uppercase;
 }
+
+
+/* =========================
+   SOCIAL CARDS
+========================= */
 
 .social-links {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 13px;
 }
+
 
 .social-card {
-    min-height: 94px;
+    min-height:
+        92px;
+
     display: flex;
+
     align-items: center;
-    gap: 14px;
-    padding: 14px 16px;
-    background: rgba(255, 250, 252, 0.96);
-    border: 1px solid var(--border);
-    border-radius: 999px;
+
+    gap: 11px;
+
+    padding:
+        11px 15px
+        11px 10px;
+
     text-decoration: none;
-    color: inherit;
-    box-shadow: 0 10px 22px rgba(229, 154, 190, 0.08);
+
+    color:
+        inherit;
+
+    background:
+        rgba(
+            255,
+            249,
+            252,
+            0.95
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        999px;
+
+    box-shadow:
+        0 8px 17px
+        rgba(
+            223,
+            130,
+            170,
+            0.07
+        );
+
     transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
+        transform
+        0.25s ease,
+        box-shadow
+        0.25s ease;
 }
+
 
 a.social-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 30px rgba(227, 145, 183, 0.14);
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 15px 27px
+        rgba(
+            222,
+            120,
+            166,
+            0.15
+        );
 }
 
-.social-icon {
-    width: 62px;
-    height: 62px;
+
+/* =========================
+   ICONOS REALES
+========================= */
+
+.social-image {
+    width: 75px;
+    height: 75px;
+
+    object-fit: contain;
+
     flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    font-size: 1.85rem;
-    border: 1px solid rgba(255, 255, 255, 0.88);
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+    filter:
+        drop-shadow(
+            0 4px 5px
+            rgba(
+                185,
+                101,
+                144,
+                0.10
+            )
+        );
 }
 
-.whatsapp-icon {
-    background: linear-gradient(135deg, #ffe0eb, #fff4f8);
-}
-
-.tiktok-icon {
-    background: linear-gradient(135deg, #efe6ff, #f9f5ff);
-}
-
-.instagram-icon {
-    background: linear-gradient(135deg, #fff0d9, #fff7eb);
-}
 
 .social-info {
     flex: 1;
-    text-align: left;
+
     display: flex;
-    flex-direction: column;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
     gap: 2px;
+
+    text-align:
+        left;
 }
+
 
 .social-name {
-    color: #7c5f6c;
-    font-size: 1rem;
-    font-weight: 800;
+    color: #795666;
+
+    font-size:
+        0.95rem;
+
+    font-weight:
+        800;
 }
+
 
 .social-description {
-    color: var(--text-soft);
-    font-size: 0.78rem;
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.72rem;
 }
+
 
 .social-arrow {
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background: #f59bc4;
-    color: white;
+    width: 34px;
+    height: 34px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+
     flex-shrink: 0;
+
+    color: white;
+
+    background:
+        var(--pink-4);
+
+    border-radius:
+        50%;
+
+    font-size:
+        1rem;
 }
+
+
+.purple-arrow {
+    background:
+        var(--purple);
+}
+
 
 .soon-badge {
-    padding: 7px 12px;
-    border-radius: 999px;
-    background: #ffb9d5;
-    color: white;
-    font-size: 0.72rem;
-    font-weight: 800;
-    flex-shrink: 0;
+    padding:
+        6px 10px;
+
+    color:
+        white;
+
+    background:
+        var(--pink-4);
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.64rem;
+
+    font-weight:
+        800;
 }
 
-.coming-soon {
-    opacity: 0.96;
+
+/* =========================
+   CONEJITOS HERO
+========================= */
+
+.bunny {
+    position: absolute;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    filter:
+        drop-shadow(
+            0 12px 18px
+            rgba(
+                184,
+                100,
+                140,
+                0.13
+            )
+        );
 }
+
+
+.bunny-peek {
+    width: 170px;
+
+    top: 135px;
+    left: -95px;
+
+    transform:
+        rotate(-6deg);
+}
+
+
+.bunny-bow {
+    width: 150px;
+
+    top: -45px;
+    right: -70px;
+
+    transform:
+        rotate(7deg);
+}
+
+
+/* =========================
+   REQUIREMENTS WRAPPER
+========================= */
+
+.requirements-wrapper {
+    position: relative;
+
+    max-width: 980px;
+
+    margin:
+        38px auto
+        0;
+}
+
+
+/* =========================
+   MOÑO REQUISITOS
+========================= */
+
+.requirements-bow {
+    width: 180px;
+
+    top: -48px;
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+}
+
+
+/* =========================
+   REQUIREMENTS CARD
+========================= */
+
+.requirements-card {
+    position: relative;
+
+    padding:
+        44px 40px
+        42px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.78
+        );
+
+    border:
+        2px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.95
+        );
+
+    border-radius:
+        43px;
+
+    box-shadow:
+        var(--shadow);
+
+    backdrop-filter:
+        blur(18px);
+
+    overflow: hidden;
+}
+
+
+.requirements-card::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 13px;
+
+    border:
+        2px dashed
+        rgba(
+            240,
+            164,
+            199,
+            0.35
+        );
+
+    border-radius:
+        32px;
+
+    pointer-events: none;
+}
+
+
+.requirements-card h2 {
+    position: relative;
+
+    z-index: 2;
+
+    text-align:
+        center;
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(
+            3rem,
+            5vw,
+            4.7rem
+        );
+
+    line-height: 1;
+
+    color:
+        var(--pink-5);
+
+    font-weight:
+        400;
+
+    margin-bottom:
+        24px;
+}
+
 
 /* =========================
    REQUISITOS
 ========================= */
 
-.requirements-card {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 34px 36px 38px;
-}
-
-.section-bow {
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 2.3rem;
-}
-
-.requirements-card h2 {
-    text-align: center;
-    font-family: "Great Vibes", cursive;
-    font-size: clamp(2.4rem, 5vw, 4.5rem);
-    color: var(--pink-5);
-    font-weight: 400;
-    margin-bottom: 20px;
-}
-
 .requirements-grid {
+    position: relative;
+
+    z-index: 2;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
     gap: 14px;
-    max-width: 860px;
-    margin: 0 auto;
+
+    max-width:
+        850px;
+
+    margin:
+        0 auto;
 }
+
 
 .requirement-pill {
-    min-height: 58px;
-    padding: 14px 18px;
-    background: rgba(255, 248, 251, 0.96);
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    min-height:
+        55px;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
-    color: #866a76;
-    font-size: 0.95rem;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(232, 155, 188, 0.06);
+
+    gap: 10px;
+
+    padding:
+        12px 18px;
+
+    color:
+        #856876;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff9fc,
+            #ffeff6
+        );
+
+    border:
+        1px solid
+        rgba(
+            240,
+            147,
+            188,
+            0.33
+        );
+
+    border-radius:
+        999px;
+
+    box-shadow:
+        0 6px 14px
+        rgba(
+            221,
+            128,
+            168,
+            0.06
+        );
+
+    font-size:
+        0.87rem;
 }
 
+
+.requirement-pill span {
+    color:
+        var(--pink-5);
+
+    font-size:
+        1rem;
+}
+
+
+/* séptimo centrado */
+
+.requirement-pill:last-child {
+    grid-column:
+        2 / 3;
+}
+
+
 /* =========================
-   PÉTALOS
+   CONEJITOS INFERIORES
+========================= */
+
+.bunny-tulip {
+    width:
+        220px;
+
+    left:
+        -25px;
+
+    bottom:
+        45px;
+
+    z-index:
+        5;
+}
+
+
+.bunny-star {
+    width:
+        205px;
+
+    right:
+        -20px;
+
+    bottom:
+        45px;
+
+    z-index:
+        5;
+}
+
+
+/* =========================
+   JARDÍN INFERIOR
+========================= */
+
+.garden-bottom {
+    position: fixed;
+
+    width:
+        100%;
+
+    left: 0;
+    bottom: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    object-fit:
+        cover;
+
+    object-position:
+        bottom center;
+
+    max-height:
+        260px;
+
+    filter:
+        drop-shadow(
+            0 -8px 20px
+            rgba(
+                130,
+                176,
+                100,
+                0.08
+            )
+        );
+}
+
+
+/* =========================
+   PETALS
 ========================= */
 
 .petals {
     position: fixed;
+
     inset: 0;
-    overflow: hidden;
+
     pointer-events: none;
+
+    overflow: hidden;
+
     z-index: 20;
 }
 
+
 .petal {
     position: absolute;
-    top: -30px;
+
+    top: -40px;
+
     width: 12px;
     height: 18px;
-    background: linear-gradient(135deg, #ffd2e3, #f4a8c7);
-    border-radius: 70% 30% 70% 30%;
-    opacity: 0.52;
-    animation: falling linear infinite;
+
+    border-radius:
+        70% 30%
+        70% 30%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffd5e5,
+            #f49ec1
+        );
+
+    opacity: 0.48;
+
+    animation:
+        falling
+        linear
+        infinite;
 }
 
+
 @keyframes falling {
+
     0% {
-        transform: translateY(-10vh) translateX(0) rotate(0deg);
+        transform:
+            translateY(-10vh)
+            translateX(0)
+            rotate(0deg);
     }
 
     50% {
-        transform: translateY(50vh) translateX(40px) rotate(180deg);
+        transform:
+            translateY(50vh)
+            translateX(45px)
+            rotate(180deg);
     }
 
     100% {
-        transform: translateY(110vh) translateX(-25px) rotate(360deg);
+        transform:
+            translateY(110vh)
+            translateX(-25px)
+            rotate(360deg);
     }
 }
+
 
 /* =========================
-   RESPONSIVE
+   TABLET
 ========================= */
 
-@media (max-width: 1050px) {
-    .bunny-left-middle,
-    .bunny-top-right,
-    .bunny-bottom-left,
-    .bunny-bottom-right {
-        transform: scale(0.86);
+@media (
+    max-width: 1050px
+) {
+
+    .bunny-peek {
+        left: -40px;
+
+        width:
+            135px;
     }
+
+    .bunny-bow {
+        right: -20px;
+
+        width:
+            125px;
+    }
+
+    .bunny-tulip,
+    .bunny-star {
+        width:
+            170px;
+    }
+
 }
 
-@media (max-width: 900px) {
-    .social-links,
-    .requirements-grid {
-        grid-template-columns: 1fr;
-    }
 
-    .hero-card,
-    .requirements-card {
-        padding-left: 22px;
-        padding-right: 22px;
-    }
+/* =========================
+   MOBILE
+========================= */
 
-    .bunny-left-middle,
-    .bunny-top-right {
-        display: none;
-    }
-}
+@media (
+    max-width: 780px
+) {
 
-@media (max-width: 640px) {
     .page {
-        padding: 28px 12px 56px;
+        padding:
+            70px 12px
+            180px;
     }
 
-    .hero-card,
-    .requirements-card {
-        border-radius: 28px;
-        padding: 26px 14px 28px;
+
+    .sakura-corner {
+        width:
+            42vw;
+
+        opacity:
+            0.82;
     }
 
-    .hero-border-dots {
-        inset: 10px;
-        border-radius: 22px;
+
+    .hero-card {
+        padding:
+            40px 15px
+            30px;
+
+        border-radius:
+            30px;
     }
 
-    .brand-logo {
-        width: min(370px, 96%);
+
+    .hero-card::before {
+        inset:
+            9px;
+
+        border-radius:
+            23px;
     }
 
-    .welcome-box {
-        padding: 20px 14px;
-        border-radius: 20px;
+
+    .hero-bow {
+        width:
+            180px;
+
+        top:
+            -48px;
     }
 
-    .welcome-box p {
-        font-size: 0.9rem;
-        line-height: 1.7;
-    }
 
     .eyebrow {
-        font-size: 0.62rem;
-        letter-spacing: 0.14em;
+        font-size:
+            0.56rem;
+
+        letter-spacing:
+            0.13em;
+
+        padding:
+            7px 16px;
     }
+
+
+    .brand-logo {
+        width:
+            94%;
+    }
+
+
+    .welcome-box {
+        padding:
+            22px 15px;
+
+        border-radius:
+            22px;
+    }
+
+
+    .welcome-box p {
+        font-size:
+            0.85rem;
+    }
+
+
+    .welcome-flower {
+        width:
+            48px;
+    }
+
+
+    .social-links {
+        grid-template-columns:
+            1fr;
+    }
+
 
     .social-card {
-        border-radius: 28px;
+        min-height:
+            84px;
     }
 
-    .bunny-bottom-left,
-    .bunny-bottom-right,
-    .branch {
-        display: none;
+
+    .social-image {
+        width:
+            65px;
+
+        height:
+            65px;
     }
 
-    .bg-cloud-left,
-    .bg-cloud-right {
-        opacity: 0.5;
+
+    .bunny-peek,
+    .bunny-bow {
+        display:
+            none;
     }
+
+
+    .requirements-wrapper {
+        margin-top:
+            35px;
+    }
+
+
+    .requirements-card {
+        padding:
+            38px 15px
+            30px;
+
+        border-radius:
+            30px;
+    }
+
+
+    .requirements-card::before {
+        inset:
+            9px;
+
+        border-radius:
+            23px;
+    }
+
+
+    .requirements-bow {
+        width:
+            135px;
+
+        top:
+            -38px;
+    }
+
+
+    .requirements-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .requirement-pill:last-child {
+        grid-column:
+            auto;
+    }
+
+
+    .bunny-tulip,
+    .bunny-star {
+        display:
+            none;
+    }
+
+
+    .garden-bottom {
+        max-height:
+            150px;
+    }
+
 }
